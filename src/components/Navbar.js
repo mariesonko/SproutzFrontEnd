@@ -2,8 +2,7 @@ import React from 'react';
 import { Menu } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
 
-
-  const Navbar = () => {
+  const Navbar = ({ path }) => {
     return (
       <Menu>
         <Menu.Menu>
@@ -11,23 +10,25 @@ import { NavLink } from 'react-router-dom';
             <NavLink to='/'>Home</NavLink>
           </Menu.Item>
           <Menu.Item>
-            <NavLink to='/'>Events</NavLink>
+            <NavLink to='/events'>Events</NavLink>
           </Menu.Item>
           <Menu.Item>
-            <NavLink to='/'>Playdates</NavLink>
+            <NavLink to='/Playdates'>Playdates</NavLink>
+          </Menu.Item>
+          <Menu.Item>
+            <NavLink to='/MyCircle'>My Circle</NavLink>
           </Menu.Item>
         </Menu.Menu>
         <Menu.Menu position='right'>
             <Menu.Item>
-              <NavLink to='/'>Profile</NavLink>
+              <NavLink to='/Profile'>Profile</NavLink>
             </Menu.Item>
-            <Menu.Item>
-              <NavLink to='/'>Signup</NavLink>
+            <Menu.Item active={path === '/Signup'}>
+              <NavLink to='/Signup'>Signup</NavLink>
             </Menu.Item>
-            <Menu.Item>
-              <NavLink to='/'>Login</NavLink>
+            <Menu.Item active={path === '/Login'}>
+              <NavLink to='/Login'>Login</NavLink>
             </Menu.Item>
-
         </Menu.Menu>
       </Menu>
 
