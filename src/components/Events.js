@@ -1,21 +1,15 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { getEvents } from '../actions'
 
 class Events extends Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        events: []
-      }
-    }
-  componentWillMount(){
-    fetch('http://localhost:3000/api/v1/events')
-    .then(resp => resp.json())
-    .then(result => this.setState({
-      events: result
-    }))
+
+  componentDidMount(){
+    this.props.getEvents();
   }
+  
   render() {
-    const eventItems = this.state.events.map(event => (
+    const eventItems = this.props.events.map(event => (
       <div key={event.id}>
         <h3>{event.eventType}</h3>
         <h4>Event Date: {event.date}</h4>
@@ -34,4 +28,8 @@ class Events extends Component {
   }
 }
 
-export default Events;
+const mapStateToProps = (state) => {
+  return { events: state.events.items }
+}
+
+export default connect(mapStateToProps, { getEvents })(Events);

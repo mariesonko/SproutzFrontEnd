@@ -1,7 +1,5 @@
 import React  from 'react';
-import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { history } from './redux/store';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Profile from './components/Profile';
@@ -13,15 +11,15 @@ import Login from './modules/auth/Login';
 import Signup from './modules/auth/Signup';
 
 
-const App = (props) => {
+class App extends React.Component{
+  render(){
     return (
-
-      <Router history={history}>
+      <Router>
       <div className='app'>
         <Header as='h1' color='violet' background='blue'>
            Sproutz
          </Header>
-        <Navbar path={props.location}/>
+        <Navbar path={this.props.location}/>
         <Route exact path='/' component={Home} />
         <Route exact path='/Login' component={Login} />
         <Route exact path='/Signup' component={Signup} />
@@ -34,6 +32,6 @@ const App = (props) => {
     </Router>
   );
 }
-
+}
 
 export default App;
