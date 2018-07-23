@@ -29,7 +29,7 @@ import { Button, Checkbox, Form, Grid } from 'semantic-ui-react';
             </Form.Field>
             <Form.Field>
               <label>Confirm Password</label>
-              <input type='password' placeholder='Enter Confirm Password here ...'/>
+              <input type='password' placeholder='Confirm Password here ...'/>
             </Form.Field>
             <Form.Field>
               <Checkbox label='I agree to the Terms and Conditions'/>

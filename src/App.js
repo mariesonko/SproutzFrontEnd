@@ -7,6 +7,7 @@ import Home from './components/Home';
 import Profile from './components/Profile';
 import Playdates from './components/Playdates';
 import PrivateCircle from './components/PrivateCircle';
+import { Header } from 'semantic-ui-react'
 import Events from './components/Events';
 import Login from './modules/auth/Login';
 import Signup from './modules/auth/Signup';
@@ -14,8 +15,12 @@ import Signup from './modules/auth/Signup';
 
 const App = ({ children, location }) => {
     return (
+
       <Router history={history}>
       <div className='app'>
+        <Header as='h1' color='violet' background='blue'>
+           Sproutz
+         </Header>
         <Navbar path={location}/>
         {children}
         {location}
