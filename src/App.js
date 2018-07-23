@@ -13,7 +13,7 @@ import Login from './modules/auth/Login';
 import Signup from './modules/auth/Signup';
 
 
-const App = ({ children, location }) => {
+const App = (props) => {
     return (
 
       <Router history={history}>
@@ -21,9 +21,7 @@ const App = ({ children, location }) => {
         <Header as='h1' color='violet' background='blue'>
            Sproutz
          </Header>
-        <Navbar path={location}/>
-        {children}
-        {location}
+        <Navbar path={props.location}/>
         <Route exact path='/' component={Home} />
         <Route exact path='/Login' component={Login} />
         <Route exact path='/Signup' component={Signup} />
@@ -37,9 +35,5 @@ const App = ({ children, location }) => {
   );
 }
 
-  App.propTypes = {
-      children: PropTypes.element.isRequired,
-      location: PropTypes.object.isRequired
-  }
 
 export default App;
