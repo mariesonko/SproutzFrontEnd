@@ -1,22 +1,26 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import { getEvents } from '../actions'
+import { connect } from 'react-redux';
+import { getEvents } from '../actions';
+import { Button, Form } from 'semantic-ui-react';
 
 class Events extends Component {
 
   componentDidMount(){
     this.props.getEvents();
   }
-  
+
   render() {
     const eventItems = this.props.events.map(event => (
       <div key={event.id}>
-        <h3>{event.eventType}</h3>
+        <img src={event.imageUrl}/>
+        <h3>{event.title}</h3>
         <h4>Event Date: {event.date}</h4>
         <h5>Start: {event.startTime} - End: {event.endTime}</h5>
         <p>{event.address}, {event.city}, {event.state} {event.zipCode}</p>
         <p>{event.description}</p>
-        <p>Entrance Fee: ${event.eventFees}</p> <br />
+        <p>Entrance Fee: ${event.eventFees}</p>
+        <Button type='submit'>Register</Button>
+        <br /> <br />
       </div>
     ))
     return (

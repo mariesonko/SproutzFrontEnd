@@ -3,12 +3,12 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Profile from './components/Profile';
-import Playdates from './components/Playdates';
-import PrivateCircle from './components/PrivateCircle';
+import CreatePlaydates from './components/CreatePlaydates';
+import MyPlaydates from './components/MyPlaydates';
 import { Header } from 'semantic-ui-react'
 import Events from './components/Events';
 import Login from './modules/auth/Login';
-import Signup from './modules/auth/Signup';
+import Signup from './components/Signup';
 
 
 class App extends React.Component{
@@ -24,9 +24,9 @@ class App extends React.Component{
         <Route exact path='/Login' component={Login} />
         <Route exact path='/Signup' component={Signup} />
         <Route exact path='/Profile' component={Profile} />
-        <Route exact path='/Playdates' component={Playdates} />
+        <Route exact path='/CreatePlaydates' component={CreatePlaydates} />
         <Route exact path='/Events' component={Events} />
-        <Route exact path='/MyCircle' component={PrivateCircle} />
+        <Route exact path='/MyCircle' component={MyPlaydates} />
 
       </div>
     </Router>

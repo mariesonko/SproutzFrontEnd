@@ -13,10 +13,10 @@ import { NavLink } from 'react-router-dom';
             <NavLink to='/events'>Events</NavLink>
           </Menu.Item>
           <Menu.Item>
-            <NavLink to='/Playdates'>Playdates</NavLink>
+            <NavLink to='/CreatePlaydates'>Create Playdates</NavLink>
           </Menu.Item>
           <Menu.Item>
-            <NavLink to='/MyCircle'>My Circle</NavLink>
+            <NavLink to='/MyPlaydates'>My Playdates</NavLink>
           </Menu.Item>
         </Menu.Menu>
         <Menu.Menu position='right'>

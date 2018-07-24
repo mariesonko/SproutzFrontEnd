@@ -18,22 +18,22 @@ class Profile extends Component {
     return (
       <Form>
         <Form.Group widths={4}>
-          <Form.Input fluid label='First name' placeholder='First name'/>
-          <Form.Input fluid label='Last name' placeholder='Last name' />
+          <Form.Input fluid label='Child First name' placeholder='Child First name'/>
+          <Form.Input fluid label='Child Last name' placeholder='Child Last name' />
         </Form.Group>
+
+        <Form.Group widths={2}>
+          <Form.Input type='date' fluid label='Date of Birth' placeholder='Date of Birth'/>
+        </Form.Group>
+        <Form.Group widths={4}>
+          <Form.Select fluid label='gender' placeholder='Gender' options={options} />
+        </Form.Group>
+
     <Form.Group widths={2}>
-      <Form.Input label='Address' placeholder='Address' />
+      <Form.Input label='Medical Conditions' placeholder='Medical Conditions' />
     </Form.Group>
+
     <Form.Group widths={4}>
-      <Form.Input label='City' placeholder='City' />
-      <Form.Input label='State' placeholder='State' />
-    </Form.Group>
-    <Form.Group widths={4}>
-      <Form.Input label='ZipCode' placeholder='ZipCode' />
-      <Form.Input label='Phone' placeholder='Phone' />
-    </Form.Group>
-    <Form.Group widths={4}>
-    <Form.Select options={options} placeholder='Gender'  />
     <Form.Checkbox label='I agree to the Terms and Conditions'  />
   </Form.Group>
     <Button type='submit'>Submit</Button>
