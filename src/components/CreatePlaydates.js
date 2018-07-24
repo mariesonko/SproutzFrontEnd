@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Form, TextArea } from 'semantic-ui-react';
+import { connect } from 'react-redux';
+import { postPlaydate } from '../actions';
 
 class CreatePlaydates extends Component {
     constructor(){
@@ -8,32 +10,35 @@ class CreatePlaydates extends Component {
         host_id: 5, title: '', eventType: '', date: '',
         startTime: '', endTime: '', spotsAvailable: '', address: '',
         city:'', state:'', zipCode: '', country: '', supervisedBy:'', food:'',
-        rating: '', eventFees: '', description: '', imageUrl:'', overnight: false
+        rating: '', eventFees: '', description: '', imageUrl:''
       }
     }
 
     handleSubmitPlaydates = (e) => {
       e.preventDefault;
-    this.setState({
-      title: this.state.title,
-      eventType: this.state.eventType,
-      date: this.state.date,
-      startTime: this.state.startTime,
-      endTime: this.state.endTime,
-      spotsAvailable: this.state.spotsAvailable,
-      address: this.state.address,
-      city: this.state.city,
-      state: this.state.state,
-      zipCode: this.state.zipCode,
-      country: this.state.country,
-      supervisedBy: this.state.supervisedBy,
-      food: this.state.food,
-      rating: this.state.rating,
-      eventFees: this.state.eventFeed,
-      description: this.state.description,
-      imageUrl: this.state.imageUrl
-    })
-
+      const newPlaydate = {
+        title: this.state.title,
+        eventType: this.state.eventType,
+        date: this.state.date,
+        startTime: this.state.startTime,
+        endTime: this.state.endTime,
+        spotsAvailable: this.state.spotsAvailable,
+        address: this.state.address,
+        city: this.state.city,
+        state: this.state.state,
+        zipCode: this.state.zipCode,
+        country: this.state.country,
+        supervisedBy: this.state.supervisedBy,
+        food: this.state.food,
+        rating: this.state.rating,
+        eventFees: this.state.eventFeed,
+        description: this.state.description,
+        imageUrl: this.state.imageUrl
+      }
+      console.log(this.state)
+      console.log(newPlaydate);
+      console.log(this.props);
+      this.props.postPlaydate(newPlaydate)
     }
 
     handleChange = (e) => {
@@ -63,14 +68,14 @@ class CreatePlaydates extends Component {
   { key: 'f', text: 'Paige', value: 'Paige' },
 ]
     return (
-      <Form onSubmit={this.handleCreatePlaydates}>
+      <Form onSubmit={this.handleSubmitPlaydates}>
         <Form.Group widths={4}>
           <Form.Select onChange={this.handleChangeDropDown} fluid label='Select Child' placeholder='Select Child' name='host' value={this.host} options={options2} />
         </Form.Group>
 
         <Form.Group widths={4}>
-          <Form.Input  onChange={this.handleChange} fluid label='Event Title' placeholder='Event Title' name='eventTitle' value={this.state.eventTitle}/>
-           <Form.Select  onChange={this.handleChangeDropDown} fluid label='Event Type' options={options} placeholder='Event Type' name='eventType' value={this.state.eventType}/>
+          <Form.Input onChange={this.handleChange} fluid label='Event Title' placeholder='Event Title' name='title' value={this.state.eventTitle}/>
+           <Form.Select  onChange={this.handleChangeDropDown} fluid label='Event Type' options={options} placeholder='Event Type' name='eventType' value={this.eventType}/>
         </Form.Group>
         <Form.Group widths={4}>
            <Form.Input onChange={this.handleChange} fluid label='Event Starts' placeholder='Start Time' name='startTime' value={this.state.startTime}/>
@@ -89,9 +94,7 @@ class CreatePlaydates extends Component {
             <TextArea onChange={this.handleChange} label='Description' placeholder='Description' name='description' value={this.state.description} />
           </Form>
           </Form.Group>
-          <Form.Group widths={4}>
-              <Form.Input fluid onChange={this.handleChange} label='Country' placeholder='country' name='date' value={this.state.country} />
-          </Form.Group>
+
         <Form.Group widths={2}>
           <Form.Input onChange={this.handleChange} label='Address' placeholder='Address' name='address' value={this.state.address}/>
         </Form.Group>
@@ -101,14 +104,19 @@ class CreatePlaydates extends Component {
         </Form.Group>
         <Form.Group widths={4}>
           <Form.Input onChange={this.handleChange} label='ZipCode' placeholder='ZipCode' name='zipCode' value={this.state.zipCode}/>
+        <Form.Input fluid onChange={this.handleChange} label='Country' placeholder='country' name='country' value={this.state.country} />
+          <Form.Group widths={2}>
+
           <Form.Input onChange={this.handleChange} label='food' placeholder='food selection' name='food' value={this.state.food}/>
+          </Form.Group>
+
         </Form.Group>
         <Form.Group widths={2}>
-          <Form.Input onChange={this.handleChange} label='Event Image' placeholder='Enter Image url address here ....' name='ImageUrl' value={this.state.imageUrl}/>
+          <Form.Input onChange={this.handleChange} label='Event Image' placeholder='Enter Image url address here ....' name='imageUrl' value={this.state.imageUrl}/>
         </Form.Group>
 
           <Form.Group widths={4}>
-            <Form.Input onChange={this.handleChange} label='Supervised By' placeholder='Enter name here...'name='supervisedBy' value={this.state.supervisedBy} />
+            <Form.Input onChange={this.handleChange} label='Supervised By' placeholder='Enter name here...' name='supervisedBy' value={this.state.supervisedBy} />
           </Form.Group>
         <Form.Group widths={4}>
            {/* <Form.Input onChange={this.handleChange} label='Invite Friends for this event' placeholder='add friends email here .....' name='guestEmail' value={this.state.guestEmail}/> */} */}
@@ -119,5 +127,8 @@ class CreatePlaydates extends Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  return { events: state.events.items }
+}
 
-export default CreatePlaydates;
+export default connect(mapStateToProps, { postPlaydate })(CreatePlaydates);
