@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Form, TextArea } from 'semantic-ui-react';
+import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { postPlaydate } from '../actions';
 
@@ -122,7 +123,9 @@ class CreatePlaydates extends Component {
            {/* <Form.Input onChange={this.handleChange} label='Invite Friends for this event' placeholder='add friends email here .....' name='guestEmail' value={this.state.guestEmail}/> */} */}
         </Form.Group>
        {/* <Form.Checkbox onChange={this.handleChangeDropDown} label='Is this an Overnight Event?' name='overnight' value={this.state.overnight}/> */}
-        <Button type='submit'>Publish</Button>
+       <Route render={({ history}) => (
+        <Button type='submit' onClick={() => { history.push('/events') }}>Publish</Button> )} />
+        {/* <Button type='submit'>Publish</Button> */}
       </Form>
     );
   }

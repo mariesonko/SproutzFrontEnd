@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getEvents } from '../actions';
+import { Route } from 'react-router-dom';
 import { Button, Form } from 'semantic-ui-react';
 
 class Events extends Component {
@@ -19,7 +20,9 @@ class Events extends Component {
         <p>{event.address}, {event.city}, {event.state} {event.zipCode}</p>
         <p>Description: {event.description}</p>
         <p>Entrance Fee: ${event.eventFees}</p>
-        <Button type='submit'>Register</Button>
+        <Route render={({ history}) => (
+         <Button type='submit' onClick={() => { history.push('/myPlaydates') }}>Add Event</Button> )} />
+        {/* <Button type='submit'>Register</Button> */}
         <br /> <br />
       </div>
     ))
