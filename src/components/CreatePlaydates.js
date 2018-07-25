@@ -36,9 +36,9 @@ class CreatePlaydates extends Component {
         description: this.state.description,
         imageUrl: this.state.imageUrl
       }
-      console.log(this.state)
-      console.log(newPlaydate);
-      console.log(this.props);
+      // console.log(this.state)
+      // console.log(newPlaydate);
+      // console.log(this.props);
       this.props.postPlaydate(newPlaydate)
     }
 

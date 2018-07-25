@@ -1,2 +1,5 @@
 export const FETCH_EVENTS = 'FETCH_EVENTS';
 export const CREATE_PLAYDATE = 'CREATE_PLAYDATE';
+export const CREATE_PARENT = 'CREATE_PARENT';
+export const CREATE_CHILD = 'CREATE_CHILD';
+export const CREATE_FAMILY = 'CREATE_FAMILY';
