@@ -52,6 +52,7 @@ import { postNewParent, postNewFamily } from '../actions';
     }
 
       handleChange = (e) => {
+        console.log(e.target.name);
         this.setState({
           [e.target.name]: e.target.value
         })
@@ -64,7 +65,7 @@ import { postNewParent, postNewFamily } from '../actions';
       }
 
       render() {
-        console.log(this.props);
+        // console.log(this.props);
         return(
       <Grid centered style={styles.root}>
         <Grid.Column width={6}>
@@ -97,18 +98,18 @@ import { postNewParent, postNewFamily } from '../actions';
             <Form.Group widths={2}>
               <Form.Input onChange={this.handleChange} label='Address' placeholder='Address' name='address' value={this.state.address}/>
             </Form.Group>
-            <Form.Group widths={1}>
+            <Form.Group widths={4}>
               <Form.Input onChange={this.handleChange} label='City' placeholder='City' name='city' value={this.state.city}/>
               <Form.Input onChange={this.handleChange} label='State' placeholder='State' name='state' value={this.state.state}/>
                 <Form.Input onChange={this.handleChange} label='Country' placeholder='Country' name='country' value={this.state.country}/>
             </Form.Group>
-            <Form.Group widths={2}>
+            <Form.Group widths={4}>
               <Form.Input onChange={this.handleChange} label='ZipCode' placeholder='ZipCode' name='zipCode' value={this.state.zipCode} />
               <Form.Input onChange={this.handleChange} label='Phone' placeholder='555-555-5555' name='cellPhone' value={this.state.cellPhone}/>
             </Form.Group>
-            {/* <Form.Field>
+            <Form.Field>
               <Checkbox onChange={this.handleChangeDropDown} label='I agree to the Terms and Conditions'/>
-            </Form.Field> */}
+            </Form.Field>
             <Button type='submit'>Signup</Button>
           </Form>
         </Grid.Column>

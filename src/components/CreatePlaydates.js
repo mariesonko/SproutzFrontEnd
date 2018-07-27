@@ -16,6 +16,7 @@ class CreatePlaydates extends Component {
     }
 
     handleSubmitPlaydates = (e) => {
+      console.log(this.state);
       e.preventDefault;
       const newPlaydate = {
         title: this.state.title,
@@ -32,7 +33,7 @@ class CreatePlaydates extends Component {
         supervisedBy: this.state.supervisedBy,
         food: this.state.food,
         rating: this.state.rating,
-        eventFees: this.state.eventFeed,
+        eventFees: this.state.eventFees,
         description: this.state.description,
         imageUrl: this.state.imageUrl
       }
@@ -40,6 +41,7 @@ class CreatePlaydates extends Component {
       // console.log(newPlaydate);
       // console.log(this.props);
       this.props.postPlaydate(newPlaydate)
+      this.props.history.push('/events')
     }
 
     handleChange = (e) => {
@@ -48,16 +50,16 @@ class CreatePlaydates extends Component {
       })
 
     }
+     handleChangeDropDown (str) {
+       return (e) => {
+         this.setState({
+             [str]: e.target.innerText
+           })
+       }
 
-    handleChangeDropDown =(e) => {
-      this.setState({
-        [e.target.name]: e.target.innerText
-      })
-
-    }
+     }
 
   render() {
-
     const options = [
     { key: 'h', text: 'My house', value: 'myhouse' },
     { key: 'e', text: 'Event', value: 'event' },
@@ -71,12 +73,12 @@ class CreatePlaydates extends Component {
     return (
       <Form onSubmit={this.handleSubmitPlaydates}>
         <Form.Group widths={4}>
-          <Form.Select onChange={this.handleChangeDropDown} fluid label='Select Child' placeholder='Select Child' name='host' value={this.host} options={options2} />
+          <Form.Select onChange={this.handleChangeDropDown('host')} fluid label='Select Child' placeholder='Select Child' name='host' value={this.host} options={options2} />
         </Form.Group>
 
         <Form.Group widths={4}>
           <Form.Input onChange={this.handleChange} fluid label='Event Title' placeholder='Event Title' name='title' value={this.state.eventTitle}/>
-           <Form.Select  onChange={this.handleChangeDropDown} fluid label='Event Type' options={options} placeholder='Event Type' name='eventType' value={this.eventType}/>
+           <Form.Select  onChange={this.handleChangeDropDown('eventType')} fluid label='Event Type' options={options} placeholder='Event Type' name='eventType' value={this.eventType}/>
         </Form.Group>
         <Form.Group widths={4}>
            <Form.Input onChange={this.handleChange} fluid label='Event Starts' placeholder='Start Time' name='startTime' value={this.state.startTime}/>
@@ -118,14 +120,13 @@ class CreatePlaydates extends Component {
 
           <Form.Group widths={4}>
             <Form.Input onChange={this.handleChange} label='Supervised By' placeholder='Enter name here...' name='supervisedBy' value={this.state.supervisedBy} />
+            <Form.Input onChange={this.handleChange} label='rating' placeholder='Enter name here...' name='rating' value={this.state.rating} />
           </Form.Group>
         <Form.Group widths={4}>
-           {/* <Form.Input onChange={this.handleChange} label='Invite Friends for this event' placeholder='add friends email here .....' name='guestEmail' value={this.state.guestEmail}/> */} */}
+           {/* <Form.Input onChange={this.handleChange} label='Invite Friends for this event' placeholder='add friends email here .....' name='guestEmail' value={this.state.guestEmail}/> */}
         </Form.Group>
        {/* <Form.Checkbox onChange={this.handleChangeDropDown} label='Is this an Overnight Event?' name='overnight' value={this.state.overnight}/> */}
-       <Route render={({ history}) => (
-        <Button type='submit' onClick={() => { history.push('/events') }}>Publish</Button> )} />
-        {/* <Button type='submit'>Publish</Button> */}
+        <Button type='submit'>Publish</Button>
       </Form>
     );
   }

@@ -4,6 +4,7 @@ import { getEvents } from '../actions';
 import { Route } from 'react-router-dom';
 import { Button, Form } from 'semantic-ui-react';
 
+
 class Events extends Component {
 
   componentDidMount(){
@@ -11,8 +12,8 @@ class Events extends Component {
   }
 
   render() {
-    const eventItems = this.props.events.map(event => (
-      <div key={event.id}>
+    const eventItems = this.props.events.map(event => {
+      return (<div key={event.id}>
         <img src={event.imageUrl}/>
         <h3>{event.title}</h3>
         <h4>Event Date: {event.date}</h4>
@@ -24,8 +25,8 @@ class Events extends Component {
          <Button type='submit' onClick={() => { history.push('/myPlaydates') }}>Add Event</Button> )} />
         {/* <Button type='submit'>Register</Button> */}
         <br /> <br />
-      </div>
-    ))
+      </div>)
+    })
     return (
       <div className='Events'>
         <h1>Events</h1>
