@@ -56,7 +56,6 @@ class CreatePlaydates extends Component {
              [str]: e.target.innerText
            })
        }
-
      }
 
   render() {
@@ -70,12 +69,12 @@ class CreatePlaydates extends Component {
   { key: 'm', text: 'Marius', value: 'Marius' },
   { key: 'f', text: 'Paige', value: 'Paige' },
 ]
+
     return (
       <Form onSubmit={this.handleSubmitPlaydates}>
         <Form.Group widths={4}>
-          <Form.Select onChange={this.handleChangeDropDown('host')} fluid label='Select Child' placeholder='Select Child' name='host' value={this.host} options={options2} />
-        </Form.Group>
-
+         <Form.Select onChange={this.handleChangeDropDown('host')} fluid label='Select Child' placeholder='Select Child' name='host' value={this.host} options={options2} />
+       </Form.Group>
         <Form.Group widths={4}>
           <Form.Input onChange={this.handleChange} fluid label='Event Title' placeholder='Event Title' name='title' value={this.state.eventTitle}/>
            <Form.Select  onChange={this.handleChangeDropDown('eventType')} fluid label='Event Type' options={options} placeholder='Event Type' name='eventType' value={this.eventType}/>
