@@ -16,7 +16,27 @@ class Home extends Component {
         <Jumbotron>
           <h2> Welcome to Sproutz </h2>
           <p>fun time ready set let's create playdates</p>
+          <Link to="/Profile">
+            <Button bsStyle="primary">Learn More</Button>
+          </Link>
         </Jumbotron>
+        <Row className="show-grid text-center">
+          <Col xs={12} sm={4} className="person-wrapper">
+            <Image src="assets/boy.jpeg" circle className="profile-pic"/>
+            <h3>Frank</h3>
+            <p>That's a crooked tree. We'll send him to Washington. These little son of a guns hide in your brush and you just have to push them out.</p>
+          </Col>
+          <Col xs={12} sm={4} className="person-wrapper">
+            <Image src="assets/children-girls-kids-50581.jpg" circle className="profile-pic"/>
+            <h3>Vanessa</h3>
+            <p>That's a crooked tree. We'll send him to Washington. These little son of a guns hide in your brush and you just have to push them out.</p>
+          </Col>
+          <Col xs={12} sm={4} className="person-wrapper">
+            <Image src="assets/baby-boys-childhood-160946.jpg" circle className="profile-pic"/>
+            <h3>Riff</h3>
+            <p>That's a crooked tree. We'll send him to Washington. These little son of a guns hide in your brush and you just have to push them out.</p>
+          </Col>
+        </Row>
 
       </Grid>
     )

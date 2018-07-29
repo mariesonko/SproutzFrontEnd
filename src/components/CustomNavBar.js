@@ -11,7 +11,7 @@ import './Home.css';
         <Navbar default collapseOnSelect>
           <Navbar.Header>
             <Navbar.Brand>
-              <Link to='/'>Sproutz</Link>
+              <Link to='/'><h3>Sproutz</h3></Link>
             </Navbar.Brand>
             <Navbar.Toggle/>
           </Navbar.Header>
@@ -19,15 +19,6 @@ import './Home.css';
             <Nav pullRight>
               <NavItem eventkey={1} componentClass={Link} href='/' to='/'>
                 home
-              </NavItem>
-              <NavItem eventkey={1} componentClass={Link} href='/Login' to='/login'>
-                Login
-              </NavItem>
-              <NavItem eventkey={1} componentClass={Link} href='/Signup' to='/Signup'>
-                Signup
-              </NavItem>
-              <NavItem eventkey={1} componentClass={Link} href='/Register' to='/Register'>
-                Register
               </NavItem>
               <NavItem eventkey={1} componentClass={Link} href='Profile' to='Profile'>
                 Profile
@@ -42,7 +33,16 @@ import './Home.css';
                 MyPlaydates
               </NavItem>
               <NavItem eventkey={1} componentClass={Link} href='Welcome' to='Welcome'>
-                Welcome
+                {/* Welcome */}
+              </NavItem>
+              <NavItem eventkey={1} componentClass={Link} href='/Signup' to='/Signup'>
+                Signup
+              </NavItem>
+              <NavItem eventkey={1} componentClass={Link} href='/Register' to='/Register'>
+                Register
+              </NavItem>
+              <NavItem eventkey={1} componentClass={Link} href='/Login' to='/login'>
+                Login
               </NavItem>
             </Nav>
           </Navbar.Collapse>
