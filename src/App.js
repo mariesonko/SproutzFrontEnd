@@ -1,7 +1,7 @@
 import React  from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route  } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import Navbar from './components/CustomNavBar';
 import Home from './components/Home';
 import Register from './components/Register';
 import Profile from './components/Profile';
@@ -67,19 +67,19 @@ class App extends React.Component{
       }
 
   render(){
+    console.log(this.props);
 
     const loggedIn = !!this.state.auth.currentFamily.id
     return (
 
       <Router>
       <div className='app'>
-         <Header as='h1' color='violet' block>
+         {/* <Header as='h1' color='violet' block>
            Sproutz
-         </Header>
+         </Header> */}
         <Navbar path={this.props.location}
           currentFamily={this.state.auth.currentFamily}
             onLogout={this.handleLogout}/>
-
         <Route exact path='/' component={Home} />
           <Route exact path='/Login' component={Login} />
         <Route exact path='/Signup' component={Signup} />
