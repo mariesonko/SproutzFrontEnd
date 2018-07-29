@@ -32,6 +32,7 @@ import './Home.css';
               <NavItem eventkey={1} componentClass={Link} href='MyPlaydates' to='MyPlaydates'>
                 MyPlaydates
               </NavItem>
+              
               <NavItem eventkey={1} componentClass={Link} href='Welcome' to='Welcome'>
                 {/* Welcome */}
               </NavItem>

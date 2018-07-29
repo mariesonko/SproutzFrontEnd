@@ -13,6 +13,7 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import Welcome from './components/Welcome';
 
+
 class App extends React.Component{
 
       constructor() {
@@ -74,9 +75,7 @@ class App extends React.Component{
 
       <Router>
       <div className='app'>
-         {/* <Header as='h1' color='violet' block>
-           Sproutz
-         </Header> */}
+         
         <Navbar path={this.props.location}
           currentFamily={this.state.auth.currentFamily}
             onLogout={this.handleLogout}/>
@@ -87,6 +86,7 @@ class App extends React.Component{
         <Route exact path='/Profile' component={Profile} />
         <Route exact path='/MyPlaydates' component={MyPlaydates} />
         <Route exact path='/CreatePlaydates' component={CreatePlaydates} />
+        {/* <Route exact path='/WhatsHot' component={WhatsHot} /> */}
         <Route exact path='/Events' component={Events} />
         <Route exact path='/MyCircle' component={MyPlaydates} />
 
