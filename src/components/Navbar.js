@@ -2,6 +2,8 @@ import React from 'react';
 import { Menu } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
 
+
+
   const Navbar = ({ path }) => {
     return (
       <Menu>
@@ -15,7 +17,7 @@ import { NavLink } from 'react-router-dom';
           <Menu.Item>
             <NavLink to='/CreatePlaydates'>Create Playdates</NavLink>
           </Menu.Item>
-        
+
           <Menu.Item>
             <NavLink to='/MyPlaydates'>My Playdates</NavLink>
           </Menu.Item>

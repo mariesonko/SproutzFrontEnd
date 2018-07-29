@@ -7,7 +7,7 @@ import { Button, Checkbox, Form, Grid } from 'semantic-ui-react';
       }
     }
 
-    const Login = () => (
+    const LoginForm = () => (
       <Grid centered style={styles.root}>
         <Grid.Column width={6}>
           <Form>
@@ -23,11 +23,12 @@ import { Button, Checkbox, Form, Grid } from 'semantic-ui-react';
               <label>Confirm Password</label>
               <input type='password' placeholder='Confirm Password here ...'/>
             </Form.Field>
-            <Button type='submit'>Signup</Button>
+            <Button type='submit'>Login</Button>
+    
           </Form>
         </Grid.Column>
 
       </Grid>
     )
 
-export default Login;
+export default LoginForm;
