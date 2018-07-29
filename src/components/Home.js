@@ -48,7 +48,7 @@ class Home extends Component {
           <Col xs={12} sm={6} className="person-wrapper">
             <Image src="assets/boy.jpeg" circle className="profile-pic"/>
             <h3>Adventure </h3>
-            <p>We don't really know where this goes - and I'm not sure we really care. A little happy sunlight shining through there. Who really cares when she ocean caresses my little delicate face - What a delighful breeze.</p>
+            <p>We don't really know where this goes - and I'm not sure we really care. A little happy sunlight shining through there. Who really cares when the ocean caresses my little delicate face - What a delighful breeze.</p>
           </Col>
           <Col xs={12} sm={6} className="person-wrapper">
             <Image src="assets/children-girls-kids-50581.jpg" circle className="profile-pic"/>
