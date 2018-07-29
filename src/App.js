@@ -72,7 +72,7 @@ class App extends React.Component{
 
       <Router>
       <div className='app'>
-        <Header as='h1' color='violet' background='blue'>
+         <Header as='h1' color='violet' block>
            Sproutz
          </Header>
         <Navbar path={this.props.location}
@@ -89,7 +89,7 @@ class App extends React.Component{
 
       </div>
     </Router>
-    
+
   );
 }
 }
