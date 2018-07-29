@@ -26,6 +26,9 @@ import { NavLink } from 'react-router-dom';
             <Menu.Item>
               <NavLink to='/Profile'>Profile</NavLink>
             </Menu.Item>
+            <Menu.Item>
+              <NavLink to='/Register'>Register</NavLink>
+            </Menu.Item>
             <Menu.Item active={path === '/Signup'}>
               <NavLink to='/Signup'>Signup</NavLink>
             </Menu.Item>

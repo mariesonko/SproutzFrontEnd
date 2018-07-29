@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Route  } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
+import Register from './components/Register';
 import Profile from './components/Profile';
 import CreatePlaydates from './components/CreatePlaydates';
 import MyPlaydates from './components/MyPlaydates';
@@ -82,7 +83,9 @@ class App extends React.Component{
         <Route exact path='/' component={Home} />
           <Route exact path='/Login' component={Login} />
         <Route exact path='/Signup' component={Signup} />
+        <Route exact path='/Register' component={Register} />
         <Route exact path='/Profile' component={Profile} />
+        <Route exact path='/MyPlaydates' component={MyPlaydates} />
         <Route exact path='/CreatePlaydates' component={CreatePlaydates} />
         <Route exact path='/Events' component={Events} />
         <Route exact path='/MyCircle' component={MyPlaydates} />

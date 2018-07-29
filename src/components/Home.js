@@ -26,6 +26,7 @@ class Home extends Component {
    } = this.state;
 
     return (
+      
       <Container text>
         <Wrapper>
          <ImageAnimation

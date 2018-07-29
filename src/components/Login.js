@@ -1,34 +1,52 @@
 import React from 'react';
-import { Button, Checkbox, Form, Grid } from 'semantic-ui-react';
+import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
 
-    const styles = {
-      root: {
-        marginTop: '5%'
-      }
+    const LoginForm = () => {
+      return(
+        <div className='login-form'>
+      {/*
+        Heads up! The styles below are necessary for the correct render of this example.
+        You can do same with CSS, the main idea is that all the elements up to the `Grid`
+        below must have a height of 100%.
+      */}
+      <style>{`
+        body > div,
+        body > div > div,
+        body > div > div > div.login-form {
+          height: 100%;
+        }
+      `}</style>
+      <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
+        <Grid.Column style={{ maxWidth: 450 }}>
+          <Header as='h2' color='teal' textAlign='center'>
+            <Image src='/logo.png' /> Log-in to your account
+          </Header>
+          <Form size='large'>
+            <Segment stacked>
+              <Form.Input fluid icon='family' iconPosition='left' placeholder='username' />
+              <Form.Input
+                fluid
+                icon='lock'
+                iconPosition='left'
+                placeholder='Password'
+                type='password'
+              />
+
+              <Button color='teal' fluid size='large'>
+                Login
+              </Button>
+            </Segment>
+          </Form>
+          <Message>
+            New to us? <a href='#'>Sign Up</a>
+          </Message>
+        </Grid.Column>
+      </Grid>
+    </div>
+
+
+      )
     }
 
-    const LoginForm = () => (
-      <Grid centered style={styles.root}>
-        <Grid.Column width={6}>
-          <Form>
-            <Form.Field>
-              <label>Email</label>
-              <input type='email' placeholder='Enter Email here ...'/>
-            </Form.Field>
-            <Form.Field>
-              <label>Password</label>
-              <input type='password' placeholder='Enter Password here ...'/>
-            </Form.Field>
-            <Form.Field>
-              <label>Confirm Password</label>
-              <input type='password' placeholder='Confirm Password here ...'/>
-            </Form.Field>
-            <Button type='submit'>Login</Button>
-    
-          </Form>
-        </Grid.Column>
-
-      </Grid>
-    )
 
 export default LoginForm;

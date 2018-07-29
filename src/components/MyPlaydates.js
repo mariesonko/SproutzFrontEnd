@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
+import { Button, Container, Divider, Grid, Header, Image, Menu, Segment } from 'semantic-ui-react'
+import { Route } from 'react-router-dom';
+
 
 class MyPlaydates extends Component {
-  render() {
+  render( ) {
+
     return (
-      <div className="MyPlaydates">
-        <h1>My Playdates view </h1>
-      </div>
-    );
+      <div>
+        <h4>My Current Playdates</h4>
+
+    
+    </div>
+)
   }
 }
 
