@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form, TextArea } from 'semantic-ui-react';
+import { Button, Form, Grid, Header, Image, Message, Segment, TextArea} from 'semantic-ui-react';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { postPlaydate } from '../actions';
@@ -75,65 +75,75 @@ class CreatePlaydates extends Component {
 ]
 
     return (
-      <Form onSubmit={this.handleSubmitPlaydates}>
-        <Form.Group widths={4}>
-         <Form.Select onChange={this.handleChangeDropDown('host')} fluid label='Select Child' placeholder='Select Child' name='host' value={this.host} options={options2} />
-       </Form.Group>
-        <Form.Group widths={4}>
-          <Form.Input onChange={this.handleChange} fluid label='Event Title' placeholder='Event Title' name='title' value={this.state.eventTitle}/>
-           <Form.Select  onChange={this.handleChangeDropDown('eventType')} fluid label='Event Type' options={options} placeholder='Event Type' name='eventType' value={this.eventType}/>
-        </Form.Group>
-        <Form.Group widths={4}>
-           <Form.Input onChange={this.handleChange} fluid label='Event Starts' placeholder='Start Time' name='startTime' value={this.state.startTime}/>
-           <Form.Input onChange={this.handleChange} fluid label='Event Ends' placeholder='End Time' name='endTime' value={this.state.endTime}/>
-        </Form.Group>
+      <div className='login-form'>
 
-        <Form.Group widths={4}>
-          <Form.Input  onChange={this.handleChange} fluid label='Spots Available' placeholder='Enter number here ....' name='spotsAvailable' value={this.state.spotsAvailable}/>
-          <Form.Input  onChange={this.handleChange} fluid label='Event Fees' placeholder='Enter Event Fees here ....' name='eventFees' value={this.state.eventFees}/>
-            </Form.Group>
+    <style>{`
+      body > div,
+      body > div > div,
+      body > div > div > div.login-form {
+        height: 100%;
+      }
+    `}</style>
+    <Grid textAlign='center' style={{ height: 'auto' }} verticalAlign='middle'>
+      <Grid.Column style={{ maxWidth: 600 }}>
+        <Header as='h2' color='blue' textAlign='center'>
+          <Image src='https://www.culture.ru/storage/images/d822a63a2006694f05787fcde046dc14/946ac219e469a5cb515b1292280373bb.jpg' circular/>
+          Create a Playdate
+        </Header>
+      <Form size='large' onSubmit={this.handleSubmitPlaydates}>
+        <Segment stacked>
+         <Form.Select onChange={this.handleChangeDropDown('host')} fluid icon='Select Child' iconPosition='left' placeholder='Select Child' name='host' value={this.host} options={options2} />
 
-          <Form.Group widths={4}>
-              <Form.Input fluid onChange={this.handleChange} label='Event Date' placeholder='mm/dd/yyyy' name='date' value={this.state.date} />
-            <Form>
-              <h5>Event Description</h5>
-            <TextArea onChange={this.handleChange} label='Description' placeholder='Description' name='description' value={this.state.description} />
-          </Form>
-          </Form.Group>
+          <Form.Input onChange={this.handleChange} fluid icon='Event Title' iconPosition='left' placeholder='Event Title' name='title' value={this.state.eventTitle}/>
+           <Form.Select  onChange={this.handleChangeDropDown('eventType')} fluid icon='Event Type' iconPosition='left' options={options} placeholder='Event Type' name='eventType' value={this.eventType}/>
 
-        <Form.Group widths={2}>
-          <Form.Input onChange={this.handleChange} label='Address' placeholder='Address' name='address' value={this.state.address}/>
-        </Form.Group>
-        <Form.Group widths={4}>
-          <Form.Input onChange={this.handleChange} label='City' placeholder='City' name='city' value={this.state.city}/>
-          <Form.Input onChange={this.handleChange} label='State' placeholder='State' name='state' value={this.state.state}/>
-        </Form.Group>
-        <Form.Group widths={4}>
-          <Form.Input onChange={this.handleChange} label='ZipCode' placeholder='ZipCode' name='zipCode' value={this.state.zipCode}/>
-        <Form.Input fluid onChange={this.handleChange} label='Country' placeholder='country' name='country' value={this.state.country} />
-          <Form.Group widths={2}>
 
-          <Form.Input onChange={this.handleChange} label='food' placeholder='food selection' name='food' value={this.state.food}/>
-          </Form.Group>
+           <Form.Input onChange={this.handleChange} fluid icon='Event Starts' iconPosition='left' placeholder='Start Time' name='startTime' value={this.state.startTime}/>
+           <Form.Input onChange={this.handleChange} fluid icon='Event Ends' iconPosition='left' placeholder='End Time' name='endTime' value={this.state.endTime}/>
 
-        </Form.Group>
-        <Form.Group widths={2}>
-          <Form.Input onChange={this.handleChange} label='Event Image' placeholder='Enter Image url address here ....' name='imageUrl' value={this.state.imageUrl}/>
-        </Form.Group>
+          <Form.Input  onChange={this.handleChange} fluid icon='Spots Available' iconPosition='left' placeholder='Enter number here ....' name='spotsAvailable' value={this.state.spotsAvailable}/>
+          <Form.Input  onChange={this.handleChange} fluid icon='Event Fees' iconPosition='left' placeholder='Enter Event Fees here ....' name='eventFees' value={this.state.eventFees}/>
 
-          <Form.Group widths={4}>
-            <Form.Input onChange={this.handleChange} label='Supervised By' placeholder='Enter name here...' name='supervisedBy' value={this.state.supervisedBy} />
-            <Form.Input onChange={this.handleChange} label='rating' placeholder='Enter name here...' name='rating' value={this.state.rating} />
-          </Form.Group>
-        <Form.Group widths={4}>
-           {/* <Form.Input onChange={this.handleChange} label='Invite Friends for this event' placeholder='add friends email here .....' name='guestEmail' value={this.state.guestEmail}/> */}
-        </Form.Group>
-       {/* <Form.Checkbox onChange={this.handleChangeDropDown} label='Is this an Overnight Event?' name='overnight' value={this.state.overnight}/> */}
-        <Button type='submit'>Publish</Button>
+              <Form.Input fluid onChange={this.handleChange} icon='Event Date' iconPosition='left' placeholder='mm/dd/yyyy' name='date' value={this.state.date} />
+
+            <TextArea onChange={this.handleChange} icon='Description' iconPosition='left' placeholder='Description' name='description' value={this.state.description}>Event Description</TextArea>
+
+
+          <Form.Input onChange={this.handleChange} icon='Address' iconPosition='left' placeholder='Address' name='address' value={this.state.address}/>
+
+          <Form.Input onChange={this.handleChange} icon='City' iconPosition='left' placeholder='City' name='city' value={this.state.city}/>
+
+          <Form.Input onChange={this.handleChange} icon='State' iconPosition='left' placeholder='State' name='state' value={this.state.state}/>
+
+          <Form.Input onChange={this.handleChange} icon='ZipCode' iconPosition='left' placeholder='ZipCode' name='zipCode' value={this.state.zipCode}/>
+
+        <Form.Input fluid onChange={this.handleChange} icon='Country' iconPosition='left' placeholder='country' name='country' value={this.state.country} />
+
+
+          <Form.Input onChange={this.handleChange} icon='food' iconPosition='left' placeholder='food selection' name='food' value={this.state.food}/>
+
+
+          <Form.Input onChange={this.handleChange} icon='Event Image' iconPosition='left' placeholder='Enter Image url address here ....' name='imageUrl' value={this.state.imageUrl}/>
+
+            <Form.Input onChange={this.handleChange} icon='Supervised By' iconPosition='left'  placeholder='Enter name here...' name='supervisedBy' value={this.state.supervisedBy} />
+
+            <Form.Input onChange={this.handleChange} icon='rating' iconPosition='left' placeholder='Enter name here...' name='rating' value={this.state.rating} />
+
+           {/* <Form.Input onChange={this.handleChange} icon='Invite Friends for this event' iconPosition='left' placeholder='add friends email here .....' name='guestEmail' value={this.state.guestEmail}/> */}
+
+       {/* <Form.Checkbox onChange={this.handleChangeDropDown} icon='Is this an Overnight Event?' iconPosition='left' name='overnight' value={this.state.overnight}/> */}
+        <Button color='blue' fluid size='large' type='submit'>
+          Publish
+        </Button>
+        </Segment>
       </Form>
+    </Grid.Column>
+  </Grid>
+</div>
     );
   }
 }
+
 const mapStateToProps = (state) => {
   return { events: state.events.items }
 }

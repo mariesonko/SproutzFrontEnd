@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Jumbotron, Grid, Row, Col, Image, Button } from 'react-bootstrap';
-import './Home.css';
+import '../layout/Home.css';
 import ImageAnimation from '../modules/ImageAnimation';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';

@@ -1,4 +1,5 @@
-import { FETCH_EVENTS, CREATE_PLAYDATE, CREATE_FAMILY, CREATE_PARENT, CREATE_CHILD  } from './types'
+import { FETCH_EVENTS, CREATE_PLAYDATE, CREATE_FAMILY,
+        CREATE_PARENT, CREATE_CHILD, CREATE_LOGIN } from './types'
 
 export const getEvents = ()=> {
 
@@ -85,3 +86,47 @@ export const getEvents = ()=> {
       }))
     }
   }
+
+  export const postLoginInfo = (family) => {
+    return (dispatch) => {
+      fetch('http://localhost:3000/api/v1/auth', {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+          'accept': 'application/json'
+        },
+        body: JSON.stringify(family)
+      })
+      .then(resp => resp.json())
+      .then(result => dispatch({
+        type: CREATE_LOGIN,
+        payload: result
+      }))
+    }
+
+  }
+
+
+
+  // componentDidMount () {
+  //   const token = localStorage.getItem('token')
+  //   if (token) {
+  //     const options =   {
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //         'Accept': 'application/json',
+  //         'Authorization': token
+  //       }
+  //     }
+  //     fetch('http://localhost:3001/api/v1/reauth', options)
+  //     .then(resp => resp.json())
+  //     .then(family => {
+  //       this.setState({
+  //           auth: {
+  //             currentFamily: family
+  //           }
+  //         })
+  //
+  //       })
+  //   }
+  // }

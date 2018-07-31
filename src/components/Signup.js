@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Checkbox, Form, Grid } from 'semantic-ui-react';
+import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { postNewFamily } from '../actions';
@@ -43,24 +43,40 @@ import { postNewFamily } from '../actions';
       render() {
 
         return(
-          <Form onSubmit={this.handleSubmitSignup}>
-            <Form.Group widths={4}>
-           <Form.Input onChange={this.handleChange} fluid label='Family Title' placeholder='Enter your family last name here....' name='title' value={this.state.title}/>
-        </Form.Group>
+          <div className='login-form'>
 
-          <Form.Group widths={4}>
-            <Form.Input onChange={this.handleChange} fluid label='Username' placeholder='Enter username here.....' name='username' value={this.state.username}/>
-          </Form.Group>
+        <style>{`
+          body > div,
+          body > div > div,
+          body > div > div > div.login-form {
+            height: 100%;
+          }
+        `}</style>
+        <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
+          <Grid.Column style={{ maxWidth: 450 }}>
+            <Header as='h2' color='blue' textAlign='center'>
+              <Image src='https://www.culture.ru/storage/images/d822a63a2006694f05787fcde046dc14/946ac219e469a5cb515b1292280373bb.jpg' circular/> Log-in to your account
+            </Header>
+          <Form size='large' onSubmit={this.handleSubmitSignup}>
+            <Segment stacked>
 
-          <Form.Group widths={4}>
-            <Form.Input  onChange={this.handleChange} fluid label='Password' placeholder='Enter password here ....' name='password' value={this.state.password}/>
-          </Form.Group>
+           <Form.Input onChange={this.handleChange} fluid icon='Family Title' iconPosition='left' placeholder='Enter your family last name here....' name='title' value={this.state.title}/>
 
-        <Form.Group widths={4}>
-        <Form.Input  onChange={this.handleChange} fluid label='Confirm Password' placeholder='Confirm password here ....' name='password' value={this.state.password}/>
-            </Form.Group>
-            <Button type='submit'>Signup</Button>
+
+            <Form.Input onChange={this.handleChange} fluid icon='Username' iconPosition='left' placeholder='Enter username here.....' name='username' value={this.state.username}/>
+
+            <Form.Input  onChange={this.handleChange} fluid icon='Password' iconPosition='left' placeholder='Enter password here ....' name='password' value={this.state.password}/>
+
+
+        <Form.Input  onChange={this.handleChange} fluid icon='Confirm Password' iconPosition='left'
+           placeholder='Confirm password here ....' name='password' value={this.state.password}/>
+  
+            <Button color='blue' fluid size='large' type='submit'>Signup</Button>
+          </Segment>
           </Form>
+        </Grid.Column>
+      </Grid>
+    </div>
       );
     }
   }

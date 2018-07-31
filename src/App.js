@@ -49,15 +49,6 @@ class App extends React.Component{
         }
       }
 
-      handleLogin = (family) => {
-        this.setState({
-            auth: {
-              currentFamily: family
-            }
-          })
-        localStorage.setItem('token', family.jwt)
-      }
-
       handleLogout = () => {
         this.setState({
           auth: {
@@ -75,7 +66,7 @@ class App extends React.Component{
 
       <Router>
       <div className='app'>
-         
+
         <Navbar path={this.props.location}
           currentFamily={this.state.auth.currentFamily}
             onLogout={this.handleLogout}/>

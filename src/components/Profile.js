@@ -1,25 +1,43 @@
 import React from 'react';
 import { Grid, Col, Image } from 'react-bootstrap';
-import './Profile.css';
+import '../layout/Profile.css';
+import { Card, Feed } from 'semantic-ui-react';
+import { postLoginInfo } from '../actions/index';
+import { connect } from 'react-redux';
 
 class Profile extends React.Component {
 
   render() {
+    console.log(this.props.current_family.id);
 
     return (
-      <div id='profile'>
-        <Image src="" className="header-image" />
-        <Grid>
-          <Col xs={12} sm={8} smOffset={2}>
-            <Image src="assets/person-1.jpg" className="about-profile-pic" rounded />
-            <h3>Family Profile info</h3>
-            <p>Parent Info</p>
-            <p>Children Info</p>
-          </Col>
-        </Grid>
-      </div>
+      <div>
+        <Card>
+     <Card.Content>
+       <Card.Header>Welcome </Card.Header>
+     </Card.Content>
+     <Card.Content>
+       <Feed>
+         <Feed.Event>
+           <Feed.Label image='https://www.culture.ru/storage/images/d822a63a2006694f05787fcde046dc14/946ac219e469a5cb515b1292280373bb.jpg' circular />
+           <Feed.Content>
+             <Feed.Date content='1 day ago' />
+             <Feed.Summary>
+               You added <a>Jenny Hess</a> to your <a>coworker</a> group.
+             </Feed.Summary>
+           </Feed.Content>
+         </Feed.Event>
+       </Feed>
+    </Card.Content>
+    </Card>
+
+     </div>
     );
   }
 }
 
-export default Profile
+const mapStateToProps = (state) => {
+  return { current_family: state.auth.current_family }
+}
+
+export default connect(mapStateToProps, { postLoginInfo })(Profile);
