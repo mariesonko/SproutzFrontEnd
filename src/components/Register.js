@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { postNewParent, postNewChild } from '../actions';
@@ -80,61 +80,65 @@ class Register extends Component {
     ]
 
     return (
+        <div className='login-form'>
 
-          <Form onSubmit={this.handleSubmitProfile}>
-             <Form.Group widths={4}>
-              <Form.Input onChange={this.handleChange} fluid label='Parent First name' placeholder='Parent First name' name='firstName' value={this.state.firstName}/>
-              <Form.Input onChange={this.handleChange} fluid label='Parent Last name' placeholder='Parent Last name' name='lastName' value={this.state.lastName}/>
-            </Form.Group>
+      <style>{`
+        body > div,
+        body > div > div,
+        body > div > div > div.login-form {
+          height: 100%;
+        }
+      `}</style>
+      <Grid textAlign='center' style={{ height: 'auto' }} verticalAlign='middle'>
+        <Grid.Column style={{ maxWidth: 700 }}>
+          <Header as='h2' color='navy' textAlign='center'>
+            <Image src='https://www.culture.ru/storage/images/d822a63a2006694f05787fcde046dc14/946ac219e469a5cb515b1292280373bb.jpg' circular/> Register Parent
+          </Header>
+          <Form size='large' onSubmit={this.handleSubmitProfile}>
+            <Segment stacked>
+              <Form.Input onChange={this.handleChange} fluid icon='Parent First name'   iconPosition='left' placeholder='Parent First name' name='firstName' value={this.state.firstName}/>
+              <Form.Input onChange={this.handleChange} fluid icon='Parent Last name'   iconPosition='left' placeholder='Parent Last name' name='lastName' value={this.state.lastName}/>
 
-            <Form.Group widths={4}>
-              <Form.Input onChange={this.handleChange} type='date' fluid label='Date of Birth' placeholder='Date of Birth' name='dateOfBirth' value={this.dateOfBirth}/>
-              <Form.Select onChange={this.handleChangeDropDown('gender')} fluid label='gender' placeholder='Gender' name='gender' value={this.gender} options={options} />
-            </Form.Group>
+              <Form.Input onChange={this.handleChange} type='date' fluid icon='Date of Birth'   iconPosition='left' placeholder='Date of Birth' name='dateOfBirth' value={this.dateOfBirth}/>
+              <Form.Select onChange={this.handleChangeDropDown('gender')} fluid icon='gender'   iconPosition='left' placeholder='Gender' name='gender' value={this.gender} options={options} />
 
-            <Form.Group widths={4}>
-              <Form.Input onChange={this.handleChange} fluid label='Phone Number' placeholder='555-555-5555' name='cellPhone' value={this.cellPhone}/>
-                <Form.Input onChange={this.handleChange} fluid label='Email' placeholder='Enter your email address....' name='email' value={this.email}/>
-            </Form.Group>
+              <Form.Input onChange={this.handleChange} fluid icon='Phone Number'   iconPosition='left'  placeholder='555-555-5555' name='cellPhone' value={this.cellPhone}/>
+                <Form.Input onChange={this.handleChange} fluid icon='Email'   iconPosition='left' placeholder='Enter your email address....' name='email' value={this.email}/>
 
-            <Form.Group widths={2}>
-              <Form.Input onChange={this.handleChange} label='Address' placeholder='Address' name='address' value={this.state.address}/>
-            </Form.Group>
+              <Form.Input onChange={this.handleChange} fluid icon='Address' iconPosition='left' placeholder='Address' name='address' value={this.state.address}/>
 
-            <Form.Group widths={4}>
-              <Form.Input onChange={this.handleChange} label='City' placeholder='City' name='city' value={this.state.city}/>
-              <Form.Input onChange={this.handleChange} label='State' placeholder='State' name='state' value={this.state.state}/>
-            </Form.Group>
+              <Form.Input onChange={this.handleChange} fluid icon='City'   iconPosition='left' placeholder='City' name='city' value={this.state.city}/>
+              <Form.Input onChange={this.handleChange} fluid icon='State'   iconPosition='left' placeholder='State' name='state' value={this.state.state}/>
 
-            <Form.Group widths={4}>
-              <Form.Input onChange={this.handleChange} label='ZipCode' placeholder='ZipCode' name='zipCode' value={this.state.zipCode}/>
-            <Form.Input fluid onChange={this.handleChange} label='Country' placeholder='country' name='country' value={this.state.country} />
-          </Form.Group>
+              <Form.Input onChange={this.handleChange} icon='ZipCode' placeholder='ZipCode' name='zipCode' value={this.state.zipCode}/>
+            <Form.Input  onChange={this.handleChange} fluid icon='Country'   iconPosition='left' placeholder='country' name='country' value={this.state.country} />
 
-        <h3>Please enter your child's info</h3>
+                <Header as='h2' color='navy' textAlign='center'>
+                  <Image src='https://www.culture.ru/storage/images/d822a63a2006694f05787fcde046dc14/946ac219e469a5cb515b1292280373bb.jpg' circular/> Add Children
+                </Header>
 
-        <Form.Group widths={4}>
-         <Form.Input onChange={this.handleChange} fluid label='Child First name' placeholder='Child First name' name='childFirstName' value={this.state.childFirstName}/>
-         <Form.Input onChange={this.handleChange} fluid label='Child Last name' placeholder='Child Last name' name='childLastName' value={this.state.childLastName}/>
-       </Form.Group>
+         <Form.Input onChange={this.handleChange} fluid icon='Child First name' iconPosition='left' placeholder='Child First name' name='childFirstName' value={this.state.childFirstName}/>
+         <Form.Input onChange={this.handleChange} fluid icon='Child Last name'   iconPosition='left' placeholder='Child Last name' name='childLastName' value={this.state.childLastName}/>
 
-        <Form.Group widths={2}>
-          <Form.Input onChange={this.handleChange} type='date' fluid label='Date of Birth' placeholder='Date of Birth' name='childDateOfBirth' value={this.childDateOfBirth}/>
-        </Form.Group>
+          <Form.Input onChange={this.handleChange} type='date' fluid icon='Date of Birth'   iconPosition='left' placeholder='Date of Birth' name='childDateOfBirth' value={this.childDateOfBirth}/>
 
-        <Form.Group widths={4}>
-          <Form.Select onChange={this.handleChangeDropDown('childGender')} fluid label=' gender' placeholder='Gender' name='childGender' value={this.childGender} options={options} />
-        </Form.Group>
+          <Form.Select onChange={this.handleChangeDropDown('childGender')} fluid icon=' gender'   iconPosition='left' placeholder='Gender' name='childGender' value={this.childGender} options={options} />
 
-      <Form.Group widths={2}>
-        <Form.Input onChange={this.handleChange} label='Medical Conditions' placeholder='Medical Conditions' name='medicalConditions' value={this.state.medicalConditions} />
-      </Form.Group>
+        <Form.Input onChange={this.handleChange}
+          fluid
+          icon='medicalConditions'
+          iconPosition='left' placeholder='Medical Conditions' name='medicalConditions' value={this.state.medicalConditions} />
 
-        <Form.Group widths={4}>
-        <Form.Checkbox label='I agree to the Terms and Conditions'  />
-      </Form.Group>
-    <Button type='submit'>Submit</Button>
+        <Form.Checkbox icon='I agree to the Terms and Conditions'  />
+
+    <Button color='blue' fluid size='large' type='submit'>
+      Submit
+    </Button>
+      </Segment>
   </Form>
+</Grid.Column>
+</Grid>
+</div>
     );
   }
 }

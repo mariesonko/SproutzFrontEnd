@@ -60,7 +60,7 @@ import { Redirect } from 'react-router-dom'
 
                   <Button color='blue' fluid size='large'>
                     Login
-                  </Button> 
+                  </Button>
                 </Segment>
               </Form>
               {/* <Message>
