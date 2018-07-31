@@ -41,7 +41,7 @@ class CreatePlaydates extends Component {
       // console.log(newPlaydate);
       // console.log(this.props);
       this.props.postPlaydate(newPlaydate)
-      this.props.history.push('/MyPlaydates')
+      this.props.history.push('/Events')
     }
 
     handleChange = (e) => {
@@ -68,7 +68,10 @@ class CreatePlaydates extends Component {
     const options2 = [
   { key: 'm', text: 'Marius', value: 'Marius' },
   { key: 'f', text: 'Paige', value: 'Paige' },
-    { key: 'f', text: 'Catarina', value: 'Catarina' }
+    { key: 'f', text: 'Catarina', value: 'Catarina' },
+    { key: 'f', text: 'Leilani', value: 'Leilani' },
+    { key: 'm', text: 'Babe', value: 'Babe' }
+
 ]
 
     return (
