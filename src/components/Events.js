@@ -4,7 +4,7 @@ import { getEvents } from '../actions';
 import { Route } from 'react-router-dom';
 import { Button, Form } from 'semantic-ui-react';
 import { Card, Feed } from 'semantic-ui-react'
-import withAuth from '../hocs/withAuth';
+// import withAuth from '../hocs/withAuth';
 
 
 class Events extends Component {
@@ -45,4 +45,4 @@ const mapStateToProps = (state) => {
   return { events: state.events.items }
 }
 
-export default withAuth(connect(mapStateToProps, { getEvents })(Events));
+export default connect(mapStateToProps, { getEvents })(Events);

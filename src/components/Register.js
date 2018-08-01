@@ -3,7 +3,7 @@ import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { postNewParent, postNewChild } from '../actions';
-import withAuth from '../hocs/withAuth';
+// import withAuth from '../hocs/withAuth';
 
     const options2 = [
       { key: 'm', text: 'Male', value: 'male' },
@@ -152,4 +152,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default withAuth(connect(mapStateToProps, { postNewParent, postNewChild })(Register));
+export default connect(mapStateToProps, { postNewParent, postNewChild })(Register);

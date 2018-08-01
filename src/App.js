@@ -27,8 +27,7 @@ class App extends React.Component{
       <Router>
       <div className='app'>
 
-        <Navbar currentUser={this.props.current_family}
-          onLogout={this.handleLogout}/>
+        <Navbar currentUser={this.props.current_family}/>
           <Switch>
         <Route exact path='/' component={Home} />
         <Route exact path='/Login' component={Login} />
@@ -43,6 +42,8 @@ class App extends React.Component{
         {/* <Route exact path='/WhatsHot' component={WhatsHot} /> */}
         <Route exact path='/Events' component={Events} />
         <Route exact path='/MyCircle' component={MyPlaydates} />
+        <Route  component={Home} />
+
         </Switch>
       </div>
     </Router>

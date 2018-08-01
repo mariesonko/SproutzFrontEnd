@@ -2,15 +2,15 @@ import React from 'react';
 import { Menu } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
-import { postLoginInfo } from '../actions/index'
+import { postLoginInfo, logout } from '../actions/index'
 import { connect } from 'react-redux'
 import '../layout/CustomNavbar.css';
 import '../layout/Home.css';
 
   class CustomNavBar extends React.Component{
-
+    
     render(){
-      // console.log(this.props.current_family.id);
+      console.log(this.props.current_family);
       return(
         <Navbar default collapseOnSelect>
           <Navbar.Header>
@@ -46,10 +46,10 @@ import '../layout/Home.css';
               <NavItem eventkey={1} componentClass={Link} href='/Register' to='/Register'>
                 Register
               </NavItem>
-              { this.props.current_family.id ? (<NavItem eventkey={1} componentClass={Link} href='/Login' to='/login'>
-                Login
-              </NavItem>) : (<NavItem eventkey={1} componentClass={Link} href='/Login' to='/login'>
+              { this.props.current_family.id ? (<NavItem onClick={this.props.logout} eventkey={1} componentClass={Link} href='/Logout' to='/logout'>
                 Logout
+              </NavItem>) : (<NavItem eventkey={1} componentClass={Link} href='/Login' to='/login'>
+                Login
               </NavItem>)}
 
             </Nav>
@@ -63,4 +63,4 @@ import '../layout/Home.css';
     return { current_family: state.auth.current_family }
   }
 
-export default connect(mapStateToProps, { postLoginInfo })(CustomNavBar);
+export default connect(mapStateToProps, { postLoginInfo, logout })(CustomNavBar);

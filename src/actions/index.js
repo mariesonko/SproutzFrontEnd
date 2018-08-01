@@ -1,5 +1,5 @@
 import { FETCH_EVENTS, CREATE_PLAYDATE, CREATE_FAMILY,
-        CREATE_PARENT, CREATE_CHILD, CREATE_LOGIN } from './types'
+        CREATE_PARENT, CREATE_CHILD, CREATE_LOGIN, LOGOUT } from './types'
 
 export const getEvents = ()=> {
 
@@ -107,6 +107,13 @@ export const getEvents = ()=> {
     }
 
   }
+
+  export const logout = () => {
+    return {
+      type: LOGOUT
+
+      }
+    }
 
 
 

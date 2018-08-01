@@ -3,7 +3,7 @@ import { Button, Form, Grid, Header, Image, Message, Segment, TextArea} from 'se
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { postPlaydate } from '../actions';
-import withAuth from '../hocs/withAuth';
+// import withAuth from '../hocs/withAuth';
 
 
 class CreatePlaydates extends Component {
@@ -61,20 +61,16 @@ class CreatePlaydates extends Component {
      }
 
   render() {
+    console.log(this.props.current_family);
     const options = [
     { key: 'h', text: 'My house', value: 'myhouse' },
     { key: 'e', text: 'Event', value: 'event' },
     { key: 'o', text: 'Other', value: 'other' }
     ]
 
-    const options2 = [
-  { key: 'm', text: 'Marius', value: 'Marius' },
-  { key: 'f', text: 'Paige', value: 'Paige' },
-    { key: 'f', text: 'Catarina', value: 'Catarina' },
-    { key: 'f', text: 'Leilani', value: 'Leilani' },
-    { key: 'm', text: 'Babe', value: 'Babe' }
-
-]
+    const options2 = this.props.current_family.children ? this.props.current_family.children.map(child => {
+      return { key: 'm', text: child.childFirstName, value: child.childFirstName }
+    }) : [];
 
     return (
       <div className='login-form'>
@@ -147,7 +143,9 @@ class CreatePlaydates extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return { events: state.events.items }
+  return { events: state.events.items,
+          current_family: state.auth.current_family
+  }
 }
 
-export default withAuth(connect(mapStateToProps, { postPlaydate })(CreatePlaydates));
+export default connect(mapStateToProps, { postPlaydate })(CreatePlaydates);

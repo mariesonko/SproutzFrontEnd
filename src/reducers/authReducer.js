@@ -1,4 +1,4 @@
-import { CREATE_LOGIN } from '../actions/types';
+import { CREATE_LOGIN, LOGOUT } from '../actions/types';
 
   const initialState = {
       current_family: {}
@@ -13,6 +13,8 @@ function authReducer(state = initialState, action){
             ...state,
             current_family: action.payload
             }
+    case LOGOUT:
+      return initialState
       
     default:
       return state
