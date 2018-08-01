@@ -10,7 +10,7 @@ import '../layout/Home.css';
   class CustomNavBar extends React.Component{
 
     render(){
-      console.log(this.props.current_family.id);
+      // console.log(this.props.current_family.id);
       return(
         <Navbar default collapseOnSelect>
           <Navbar.Header>

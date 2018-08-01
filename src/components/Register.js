@@ -3,6 +3,7 @@ import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { postNewParent, postNewChild } from '../actions';
+import withAuth from '../hocs/withAuth';
 
     const options2 = [
       { key: 'm', text: 'Male', value: 'male' },
@@ -131,14 +132,14 @@ class Register extends Component {
 
         <Form.Checkbox icon='I agree to the Terms and Conditions'  />
 
-    <Button color='blue' fluid size='large' type='submit'>
-      Submit
-    </Button>
-      </Segment>
-  </Form>
-</Grid.Column>
-</Grid>
-</div>
+      <Button color='blue' fluid size='large' type='submit'>
+        Submit
+      </Button>
+        </Segment>
+    </Form>
+  </Grid.Column>
+  </Grid>
+  </div>
     );
   }
 }
@@ -151,4 +152,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { postNewParent, postNewChild })(Register);
+export default withAuth(connect(mapStateToProps, { postNewParent, postNewChild })(Register));

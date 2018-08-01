@@ -3,12 +3,14 @@ import { Button, Form, Grid, Header, Image, Message, Segment, TextArea} from 'se
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { postPlaydate } from '../actions';
+import withAuth from '../hocs/withAuth';
+
 
 class CreatePlaydates extends Component {
     constructor(){
       super()
       this.state = {
-        host_id: 5, title: '', eventType: '', date: '',
+        title: '', eventType: '', date: '',
         startTime: '', endTime: '', spotsAvailable: '', address: '',
         city:'', state:'', zipCode: '', country: '', supervisedBy:'', food:'',
         rating: '', eventFees: '', description: '', imageUrl:''
@@ -148,4 +150,4 @@ const mapStateToProps = (state) => {
   return { events: state.events.items }
 }
 
-export default connect(mapStateToProps, { postPlaydate })(CreatePlaydates);
+export default withAuth(connect(mapStateToProps, { postPlaydate })(CreatePlaydates));

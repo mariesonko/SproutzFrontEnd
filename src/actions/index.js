@@ -98,10 +98,12 @@ export const getEvents = ()=> {
         body: JSON.stringify(family)
       })
       .then(resp => resp.json())
-      .then(result => dispatch({
-        type: CREATE_LOGIN,
-        payload: result
-      }))
+      .then(result => {
+        dispatch({
+          type: CREATE_LOGIN,
+          payload: result
+        })
+      })
     }
 
   }

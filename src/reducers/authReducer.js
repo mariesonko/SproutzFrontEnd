@@ -13,6 +13,7 @@ function authReducer(state = initialState, action){
             ...state,
             current_family: action.payload
             }
+      
     default:
       return state
 

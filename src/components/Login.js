@@ -70,7 +70,7 @@ import { Redirect } from 'react-router-dom'
           </Grid>
         </div>)
   } else {
-    return <Redirect to='/profile'/>
+    return <Redirect to='/welcome'/>
   }
 }
 }
