@@ -16,7 +16,6 @@ import { Redirect } from 'react-router-dom'
 
       handleSubmit = (e) => {
         e.preventDefault;
-        console.log(this.state);
         const loginInfo = {
           username: this.state.username,
           password: this.state.password
@@ -63,9 +62,6 @@ import { Redirect } from 'react-router-dom'
                   </Button>
                 </Segment>
               </Form>
-              {/* <Message>
-                New to us? <a href='#'>Sign Up</a>
-              </Message> */}
             </Grid.Column>
           </Grid>
         </div>)

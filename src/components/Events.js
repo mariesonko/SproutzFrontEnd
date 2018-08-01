@@ -26,7 +26,7 @@ class Events extends Component {
         <p>Description: {event.description}</p>
         <p>Entrance Fee: ${event.eventFees}</p>
         <Route render={({ history}) => (
-         <Button type='submit' onClick={() => { history.push('/myPlaydates') }}>Add Event</Button> )} />
+         <Button type='submit' onClick={() => { history.push('/myPlaydates') }}>Join A Playdate!</Button> )} />
         {/* <Button type='submit'>Register</Button> */}
         <br /> <br />
       </div>

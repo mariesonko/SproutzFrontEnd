@@ -20,8 +20,7 @@ class App extends React.Component{
   render(){
 
 
-    const loggedIn = !!this.props.current_family.id
-    console.log(loggedIn);
+    const loggedIn = !!this.props.current_family.id;
     return (
 
       <Router>
