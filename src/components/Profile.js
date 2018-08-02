@@ -2,11 +2,11 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import { Button, Divider, Dropdown, Grid, Header, Icon, Image,Label,
   Menu, Message, Segment, Table, Input, Form } from 'semantic-ui-react';
+
 import { postLoginInfo } from '../actions/index';
 import { connect } from 'react-redux';
 import withAuth from '../hocs/withAuth';
-// import { Grid, Col, Image } from 'react-bootstrap';
-// import '../layout/Profile.css';
+
 
 class Profile extends React.Component {
 
@@ -26,6 +26,7 @@ class Profile extends React.Component {
     }) : [];
 
     return (
+
       <Grid container style={{ padding: '5em 0em' }}>
     <Grid.Row>
       <Grid.Column>

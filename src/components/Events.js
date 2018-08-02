@@ -4,6 +4,7 @@ import { getEvents } from '../actions';
 import { Route } from 'react-router-dom';
 import { Button, Form, Card, Feed } from 'semantic-ui-react';
 import withAuth from '../hocs/withAuth';
+import EventCard from './EventCard';
 
 
 class Events extends Component {
@@ -13,31 +14,11 @@ class Events extends Component {
   }
 
   render() {
+console.log(this.props.events);
+    const eventItems = this.props.events.map(event => <EventCard event={event}/>)
 
-    const eventItems = this.props.events.map(event => {
-      return (
-        <Card.Group key={event.id}>
-      <Card color='olive' itemsPerRow={4}>
-      <Card.Content>
-        <Card.Header>{event.title}</Card.Header>
-         <Card image={event.imageUrl} />
-         <Card.Meta>Event Date: {event.date}</Card.Meta>
-        <Card.Meta>Start: {event.startTime} - End: {event.endTime}</Card.Meta>
-        <Card.Meta>{event.address}, {event.city}, {event.state} {event.zipCode}</Card.Meta>
-          <Card.Description>Description: {event.description}</Card.Description>
-        <Card.Meta>{event.eventFees}</Card.Meta>
-        <Route render={({ history}) => (
-         <Button type='submit' onClick={() => { history.push('/myPlaydates') }}>Join A Playdate!</Button> )} />
-        {/* <Button type='submit'>Register</Button> */}
-        <br /> <br />
-      </Card.Content>
-        </Card>
-      </Card.Group>
-    )
-  })
     return (
-      <div className='Events' itemsPerRow={4}>
-        {/* <h1>Events</h1> */}
+      <div className='Events'>
         { eventItems}
       </div>
     );

@@ -1,4 +1,4 @@
-import { FETCH_EVENTS, CREATE_PLAYDATE } from '../actions/types';
+import { FETCH_EVENTS, CREATE_PLAYDATE, JOIN_PLAYDATE } from '../actions/types';
 
   const initialState = {
     items: [],
@@ -14,6 +14,12 @@ function eventReducer(state = initialState, action){
             }
 
     case CREATE_PLAYDATE:
+    return {
+          ...state,
+          items: [ ...initialState.items, action.payload ]
+        }
+
+    case JOIN_PLAYDATE:
     return {
           ...state,
           items: [ ...initialState.items, action.payload ]

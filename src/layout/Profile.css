@@ -8,3 +8,16 @@
   float: left;
   margin: 0 1em 1em 0;
 }
+
+.background{
+  background-image: url("./assets/1105.jpg") !important;
+ background-position: center !important;
+ background-size: contain !important;
+}
+
+.btn-primary {
+  background-image: url("./assets/1105.jpg") !important;
+  border: none;
+  border-radius: 0;
+  background-color: #2892D7;
+}

@@ -5,3 +5,4 @@ export const CREATE_CHILD = 'CREATE_CHILD';
 export const CREATE_FAMILY = 'CREATE_FAMILY';
 export const CREATE_LOGIN = 'CREATE_LOGIN';
 export const LOGOUT = 'LOGOUT';
+export const JOIN_PLAYDATE = 'JOIN_PLAYDATE';

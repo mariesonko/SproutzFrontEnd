@@ -12,11 +12,11 @@ import withAuth from '../hocs/withAuth';
 
 class Register extends Component {
 
-      constructor(){
-        super()
+      constructor(props){
+        super(props)
         this.state = {
          firstName: '', lastName: '', dateOfBirth: '', gender:'',
-         cellPhone: '', address: '', city: '', state: '', zipCode: '', country:'', email:'', childFirstName:'', childLastName: '', childDateOfBirth:'', childGender:'',medicalConditions:'', family_id: 7
+         cellPhone: '', address: '', city: '', state: '', zipCode: '', country:'', email:'', childFirstName:'', childLastName: '', childDateOfBirth:'', childGender:'',medicalConditions:'', family_id: props.current_family.id
         }
       }
 

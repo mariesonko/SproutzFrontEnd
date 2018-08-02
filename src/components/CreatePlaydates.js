@@ -18,7 +18,7 @@ class CreatePlaydates extends Component {
     }
 
     handleSubmitPlaydates = (e) => {
-      console.log(this.state);
+      // console.log(this.state);
       e.preventDefault;
       const newPlaydate = {
         title: this.state.title,
@@ -39,9 +39,7 @@ class CreatePlaydates extends Component {
         description: this.state.description,
         imageUrl: this.state.imageUrl
       }
-      // console.log(this.state)
-      // console.log(newPlaydate);
-      // console.log(this.props);
+      
       this.props.postPlaydate(newPlaydate)
       this.props.history.push('/Events')
     }

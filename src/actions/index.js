@@ -1,5 +1,5 @@
 import { FETCH_EVENTS, CREATE_PLAYDATE, CREATE_FAMILY,
-        CREATE_PARENT, CREATE_CHILD, CREATE_LOGIN, LOGOUT } from './types'
+        CREATE_PARENT, CREATE_CHILD, CREATE_LOGIN, LOGOUT, JOIN_PLAYDATE } from './types'
 
 export const getEvents = ()=> {
 
@@ -112,6 +112,27 @@ export const getEvents = ()=> {
     return {
       type: LOGOUT
 
+      }
+    }
+
+    export const joinPlaydate = (playdate) => {
+      return (dispatch) => {
+        fetch('http://localhost:3000/api/v1/playdates', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+            'accept': 'application/json'
+          },
+          body: JSON.stringify(playdate)
+        })
+        .then(resp => resp.json())
+        .then(result => {
+          console.log(result)
+          dispatch({
+          type: JOIN_PLAYDATE,
+          payload: result
+        })
+      })
       }
     }
 
