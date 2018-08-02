@@ -4,7 +4,9 @@
   "private": true,
   "dependencies": {
     "normalize.css": "^8.0.0",
+    "moment": "2.21.0",
     "react": "^16.4.1",
+    "react-big-calendar": "^0.19.2",
     "react-bootstrap": "^0.32.1",
     "react-dom": "^16.4.1",
     "react-motion": "^0.5.2",

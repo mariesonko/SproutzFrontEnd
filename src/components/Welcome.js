@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Divider, Dropdown, Grid, Header, Icon, Image,Label,
   Menu, Message, Segment, Table, Input, Form } from 'semantic-ui-react';
-  import { Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { postPlaydate } from '../actions';
 import withAuth from '../hocs/withAuth';

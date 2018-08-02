@@ -1,39 +1,103 @@
 import React from 'react';
-import { Grid, Col, Image } from 'react-bootstrap';
-import '../layout/Profile.css';
-import { Card, Feed } from 'semantic-ui-react';
+import { Route } from 'react-router-dom';
+import { Button, Divider, Dropdown, Grid, Header, Icon, Image,Label,
+  Menu, Message, Segment, Table, Input, Form } from 'semantic-ui-react';
 import { postLoginInfo } from '../actions/index';
 import { connect } from 'react-redux';
 import withAuth from '../hocs/withAuth';
+// import { Grid, Col, Image } from 'react-bootstrap';
+// import '../layout/Profile.css';
 
 class Profile extends React.Component {
 
+  handleChangeDropDown (str) {
+    return (e) => {
+      this.setState({
+          [str]: e.target.innerText
+        })
+    }
+  }
+
+
   render() {
-    console.log(this.props.current_family.id);
+
+    const options2 = this.props.current_family.children ? this.props.current_family.children.map(child => {
+      return { key: 'm', text: child.childFirstName, value: child.childFirstName }
+    }) : [];
 
     return (
-      <div>
-        <Card>
-     <Card.Content>
-       <Card.Header>Welcome </Card.Header>
-     </Card.Content>
-     <Card.Content>
-       <Feed>
-         <Feed.Event>
-           <Feed.Label image='https://www.culture.ru/storage/images/d822a63a2006694f05787fcde046dc14/946ac219e469a5cb515b1292280373bb.jpg' circular />
-           <Feed.Content>
-             <Feed.Date content='1 day ago' />
-             <Feed.Summary>
-               You added <a>Jenny Hess</a> to your <a>coworker</a> group.
-             </Feed.Summary>
-           </Feed.Content>
-         </Feed.Event>
-       </Feed>
-    </Card.Content>
-    </Card>
+      <Grid container style={{ padding: '5em 0em' }}>
+    <Grid.Row>
+      <Grid.Column>
+        <Header as='h1' dividing>
+          Welcome {this.props.current_family.title} Family!
+        </Header>
+      </Grid.Column>
+    </Grid.Row>
 
-     </div>
-    );
+    <br /> <br /><br /> <br />
+
+    <Grid.Row>
+      <Grid.Column>
+        <Message>
+          {/* <Header as='h1'></Header> */}
+          <Route render={({ history}) => (
+          <Button color='blue' type='submit' onClick={() => { history.push('/CreatePlaydates') }} >Create a Custom Playdate &raquo;</Button> )}/>
+        </Message>
+      </Grid.Column>
+    </Grid.Row>
+
+    <br /> <br /><br /> <br /><br /> <br /><br />
+
+    <Grid.Row>
+      <Grid.Column>
+        <Header as='h1'>Search for a Playdate Event</Header>
+        <Divider />
+
+        <Header as='h3'>Select Child </Header>
+        <Menu vertical>
+      <Form.Select onChange={this.handleChangeDropDown('host')} fluid icon='Select Child' iconPosition='left' placeholder='Select Child' name='host' value={this.host} options={options2} />
+        </Menu>
+        <Header as='h1'>Choose your Selection</Header>
+        <Dropdown
+          options={[
+            { key: 'all', text: 'All', value: 'all' },
+            { key: 'kids play', text: 'Kids Play', value: 'kids play' },
+            { key: 'activities', text: 'Activities', value: 'activities' },
+            { key: 'kids concerts', text: 'Kids Concerts', value: 'kids concerts' }
+
+          ]}
+          placeholder='Select'
+          selection
+        />
+        <Menu vertical>
+          <Input action='Search' placeholder='Search...' />
+        </Menu>
+      </Grid.Column>
+    </Grid.Row>
+
+    <br /> <br /><br /> <br /><br /> <br /><br />
+
+    <Grid.Row>
+      <Grid.Column>
+        <Header as='h1'>Events</Header>
+        <Divider />
+
+        <Menu vertical>
+          <Menu.Item>
+            Sproutz <Label>Play Made Easy</Label>
+          </Menu.Item>
+          <Menu.Item>
+            <Route render={({ history}) => (
+             <Button type='submit' onClick={() => { history.push('/Events') }}>Add Event</Button> )} />
+          </Menu.Item>
+
+        </Menu>
+      </Grid.Column>
+    </Grid.Row>
+
+  </Grid>
+    )
   }
 }
 
