@@ -1,4 +1,4 @@
-import { CREATE_LOGIN, LOGOUT } from '../actions/types';
+import { CREATE_LOGIN, LOGOUT, JOIN_PLAYDATE } from '../actions/types';
 
   const initialState = {
       current_family: {}
@@ -15,7 +15,15 @@ function authReducer(state = initialState, action){
             }
     case LOGOUT:
       return initialState
-      
+
+    case JOIN_PLAYDATE:
+      return {
+            ...state,
+            current_family : {...state.current_family,
+                passive_playdates: [ ...state.current_family.passive_playdates, action.payload ]
+        }
+        }
+
     default:
       return state
 

@@ -22,14 +22,9 @@ const allViews = Object
 class MyPlaydates extends Component {
 
   state = {
-    events: [
-      {
-        start: new Date(),
-        end: new Date(moment().add(1, "days")),
-        title: "Some title"
-      }
-    ]
+    events: this.props.events
   };
+
 
   onEventResize = (type, { event, start, end, allDay }) => {
     this.setState(state => {
@@ -43,12 +38,30 @@ class MyPlaydates extends Component {
     console.log(start);
   };
   render( ) {
+//     {
+//   id: 0,
+//   title: 'All Day Event very long title',
+//   allDay: true,
+//   start: new Date(2015, 3, 0),
+//   end: new Date(2015, 3, 1),
+// }
+  const playdateEvent = this.props.playdates.map(playdate => {
+    return {
+      id: playdate.id,
+      title: 'Playdate Info',
+      allDay: false,
+      start: new Date(`${playdate.date} ${playdate.military_start_time}`),
+      end: new Date(`${playdate.date} ${playdate.military_end_time}`),
 
+    }
+  })
+    console.log(this.props.playdates);
     return (
       <div style={{ height: "100vh" }}>
     <BigCalendar
 
-        events={this.state.events}
+
+        events={playdateEvent}
         onEventDrop={this.onEventDrop}
         onEventResize={this.onEventResize}
         resizable
@@ -64,8 +77,11 @@ class MyPlaydates extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return { events: state.events.items,
+  return {
+
+          playdates: [...state.auth.current_family.passive_playdates, ...state.auth.current_family.active_playdates],
           current_family: state.auth.current_family
+
         }
 }
 

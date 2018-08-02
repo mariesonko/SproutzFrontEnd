@@ -1,5 +1,5 @@
 import { FETCH_EVENTS, CREATE_PLAYDATE, CREATE_FAMILY,
-        CREATE_PARENT, CREATE_CHILD, CREATE_LOGIN, LOGOUT, JOIN_PLAYDATE } from './types'
+        CREATE_PARENT, CREATE_CHILD, CREATE_LOGIN, LOGOUT, JOIN_PLAYDATE, GET_PLAYDATE } from './types'
 
 export const getEvents = ()=> {
 
@@ -117,7 +117,7 @@ export const getEvents = ()=> {
 
     export const joinPlaydate = (playdate) => {
       return (dispatch) => {
-        fetch('http://localhost:3000/api/v1/playdates', {
+        return fetch('http://localhost:3000/api/v1/playdates', {
           method: 'POST',
           headers: {
             'content-type': 'application/json',
@@ -127,7 +127,6 @@ export const getEvents = ()=> {
         })
         .then(resp => resp.json())
         .then(result => {
-          console.log(result)
           dispatch({
           type: JOIN_PLAYDATE,
           payload: result
@@ -135,6 +134,25 @@ export const getEvents = ()=> {
       })
       }
     }
+
+    // export const getPlaydates = (id) => {
+    //   return (dispatch) => {
+    //     return fetch('http://localhost:3000/api/v1/playdates', {
+    //       method: 'GET',
+    //       headers: {
+    //         'content-type': 'application/json',
+    //         'accept': 'application/json'
+    //       }
+    //     })
+    //     .then(resp => resp.json())
+    //     .then(result => {
+    //       dispatch({
+    //       type: GET_PLAYDATE,
+    //       payload: result
+    //     })
+    //   })
+    //   }
+    // }
 
 
 

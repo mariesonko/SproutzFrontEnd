@@ -14,7 +14,6 @@ class Events extends Component {
   }
 
   render() {
-console.log(this.props.events);
     const eventItems = this.props.events.map(event => <EventCard event={event}/>)
 
     return (

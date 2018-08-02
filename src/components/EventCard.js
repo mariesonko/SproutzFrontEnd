@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getEvents, joinPlaydate } from '../actions';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import { Button, Form, Card, Feed } from 'semantic-ui-react';
 
 
@@ -37,8 +37,8 @@ class EventCard extends Component {
           endTime: this.props.event.endTime
         }
 
-    this.props.joinPlaydate(playdatejoined)
-    // this.props.history.push('/MyPlaydates')
+    this.props.joinPlaydate(playdatejoined).then(() => this.props.history.push('/MyPlaydates'))
+
 
   }
   handleChangeDropDown (str) {
@@ -90,4 +90,4 @@ const mapStateToProps = (state) => {
          }
 }
 
-export default connect(mapStateToProps, { getEvents, joinPlaydate })(EventCard);
+export default withRouter(connect(mapStateToProps, { getEvents, joinPlaydate })(EventCard));
