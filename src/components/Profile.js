@@ -4,7 +4,7 @@ import '../layout/Profile.css';
 import { Card, Feed } from 'semantic-ui-react';
 import { postLoginInfo } from '../actions/index';
 import { connect } from 'react-redux';
-// import withAuth from '../hocs/withAuth';
+import withAuth from '../hocs/withAuth';
 
 class Profile extends React.Component {
 
@@ -38,7 +38,9 @@ class Profile extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return { current_family: state.auth.current_family }
+  return { current_family: state.auth.current_family,
+           current_family: state.auth.current_family
+        }
 }
 
-export default connect(mapStateToProps, { postLoginInfo })(Profile);
+export default withAuth(connect(mapStateToProps, { postLoginInfo })(Profile));

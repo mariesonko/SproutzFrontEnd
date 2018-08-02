@@ -3,7 +3,7 @@ import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { postNewParent, postNewChild } from '../actions';
-// import withAuth from '../hocs/withAuth';
+import withAuth from '../hocs/withAuth';
 
     const options2 = [
       { key: 'm', text: 'Male', value: 'male' },
@@ -49,7 +49,7 @@ class Register extends Component {
 
        this.props.postNewParent(newParent);
        this.props.postNewChild(newChild);
-         this.props.history.push('/MyPlaydates')
+         this.props.history.push('/Welcome')
 
      }
 
@@ -148,8 +148,9 @@ const mapStateToProps = (state) => {
   // console.log(state);
   return {
         parents: state.families.parents,
-        children: state.families.children
+        children: state.families.children,
+        current_family: state.auth.current_family
     }
 }
 
-export default connect(mapStateToProps, { postNewParent, postNewChild })(Register);
+export default withAuth(connect(mapStateToProps, { postNewParent, postNewChild })(Register));

@@ -3,7 +3,7 @@ import { Button, Form, Grid, Header, Image, Message, Segment, TextArea} from 'se
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { postPlaydate } from '../actions';
-// import withAuth from '../hocs/withAuth';
+import withAuth from '../hocs/withAuth';
 
 
 class CreatePlaydates extends Component {
@@ -148,4 +148,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { postPlaydate })(CreatePlaydates);
+export default withAuth(connect(mapStateToProps, { postPlaydate })(CreatePlaydates));

@@ -66,7 +66,7 @@ import { Redirect } from 'react-router-dom'
           </Grid>
         </div>)
   } else {
-    return <Redirect to='/welcome'/>
+    return <Redirect to='/Register'/>
   }
 }
 }

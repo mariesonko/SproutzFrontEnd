@@ -31,16 +31,25 @@ class App extends React.Component{
         <Route exact path='/' component={Home} />
         <Route exact path='/Login' component={Login} />
         <Route exact path='/Signup' component={Signup} />
-        <Route exact path='/Register' component={Register} />
-        <Route exact path='/Profile' component={Profile} />
+        
+        <Route exact path='/Register'
+        render={(routerProps) => <Register {...routerProps} loggedIn={loggedIn}/>}/>
+
+        <Route exact path='/Profile'
+        render={(routerProps) => <Profile {...routerProps} loggedIn={loggedIn}/>}/>
 
         <Route exact path='/Welcome'
         render={(routerProps) => <Welcome {...routerProps} loggedIn={loggedIn}/>} />
-        <Route exact path='/MyPlaydates' component={MyPlaydates}/>
-        <Route exact path='/CreatePlaydates' component={CreatePlaydates} />
-        {/* <Route exact path='/WhatsHot' component={WhatsHot} /> */}
-        <Route exact path='/Events' component={Events} />
-        <Route exact path='/MyCircle' component={MyPlaydates} />
+
+        <Route exact path='/MyPlaydates'
+        render={(routerProps) => <MyPlaydates {...routerProps} loggedIn={loggedIn}/>}/>
+
+        <Route exact path='/CreatePlaydates'
+        render={(routerProps) => <CreatePlaydates {...routerProps} loggedIn={loggedIn}/>} />
+
+        <Route exact path='/Events'
+        render={(routerProps) => <Events {...routerProps} loggedIn={loggedIn}/>}/>
+
         <Route  component={Home} />
 
         </Switch>

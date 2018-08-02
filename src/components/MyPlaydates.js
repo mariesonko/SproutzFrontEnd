@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
 import { getEvents } from '../actions';
 import { postLoginInfo } from '../actions/index';
-// import withAuth from '../hocs/withAuth';
+import withAuth from '../hocs/withAuth';
 
 class MyPlaydates extends Component {
   render( ) {
@@ -20,7 +20,9 @@ class MyPlaydates extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return { events: state.events.items }
+  return { events: state.events.items,
+          current_family: state.auth.current_family
+        }
 }
 
-export default connect(mapStateToProps, { getEvents, postLoginInfo })(MyPlaydates);
+export default withAuth(connect(mapStateToProps, { getEvents, postLoginInfo })(MyPlaydates));
